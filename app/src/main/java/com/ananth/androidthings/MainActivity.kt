@@ -71,6 +71,7 @@ class MainActivity : ComponentActivity() {
         }
         uri?.let {
             viewModel.updateUri(uri)
+
         }
 
     }
