@@ -30,6 +30,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".intent.MyIntentActivity"/>
+        <activity android:name=".broadcast.BroadCastActivity" android:exported="true"/>
     </application>
 
     <queries>
