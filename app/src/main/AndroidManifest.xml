@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <application
         android:allowBackup="true"
+        android:name=".foregroundservice.RunningApp"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -31,6 +34,8 @@
         </activity>
         <activity android:name=".intent.MyIntentActivity"/>
         <activity android:name=".broadcast.BroadCastActivity" android:exported="true"/>
+        <activity android:name=".foregroundservice.ForeGroundServiceActivity" android:exported="true"/>
+        <service android:name=".foregroundservice.RunningService"/>
     </application>
 
     <queries>
