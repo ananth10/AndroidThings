@@ -53,6 +53,7 @@
 
         <activity android:name=".uri.UriActivity" android:exported="true"/>
         <activity android:name=".content_providers.ContentProviderActivity" android:exported="true"/>
+        <activity android:name=".crypto.CryptoActivity" android:exported="true"/>
     </application>
 
     <queries>
