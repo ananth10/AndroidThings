@@ -22,16 +22,16 @@
             android:launchMode="singleTop"
             android:label="@string/app_name"
             android:theme="@style/Theme.AndroidThings">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.SEND"/> &lt;!&ndash;other app can send, we are filtering based on action&ndash;&gt;-->
-<!--                <category android:name="android.intent.category.DEFAULT"/>-->
-<!--                <data android:mimeType="image/*"/> &lt;!&ndash;mean , what kind of data our app can receive&ndash;&gt;-->
-<!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/> <!--other app can send, we are filtering based on action-->
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/> <!--mean , what kind of data our app can receive-->
+            </intent-filter>
         </activity>
         <activity android:name=".intent.MyIntentActivity"/>
         <activity android:name=".broadcast.BroadCastActivity" android:exported="true"/>
@@ -54,6 +54,7 @@
         <activity android:name=".uri.UriActivity" android:exported="true"/>
         <activity android:name=".content_providers.ContentProviderActivity" android:exported="true"/>
         <activity android:name=".crypto.CryptoActivity" android:exported="true"/>
+        <activity android:name=".encrypt_datastore.EncryptDataStoreActivity" android:exported="true"/>
     </application>
 
     <queries>
