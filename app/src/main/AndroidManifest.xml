@@ -55,6 +55,7 @@
         <activity android:name=".content_providers.ContentProviderActivity" android:exported="true"/>
         <activity android:name=".crypto.CryptoActivity" android:exported="true"/>
         <activity android:name=".encrypt_datastore.EncryptDataStoreActivity" android:exported="true"/>
+        <activity android:name=".material3.MaterialButtonsActivity" android:exported="true"/>
     </application>
 
     <queries>
