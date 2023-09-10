@@ -58,6 +58,8 @@
         <activity android:name=".material3.MaterialButtonsActivity" android:exported="true"/>
         <activity android:name=".material3.MaterialTextFieldActivity" android:exported="true"/>
         <activity android:name=".material3.SelectionUIActivity" android:exported="true"/>
+        <activity android:name=".material3.TopAppBarActivity" android:exported="true"/>
+        <activity android:name=".material3.BottomAppBarActivity" android:exported="true"/>
     </application>
 
     <queries>
