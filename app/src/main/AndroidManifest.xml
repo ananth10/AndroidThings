@@ -62,6 +62,7 @@
         <activity android:name=".material3.BottomAppBarActivity" android:exported="true"/>
         <activity android:name=".material3.BottomNavigation" android:exported="true"/>
         <activity android:name=".material3.NavigationRailActivity" android:exported="true"/>
+        <activity android:name=".material3.NavigationDrawerActivity" android:exported="true"/>
     </application>
 
     <queries>
