@@ -9,6 +9,7 @@ import com.ananth.androidthings.testing.getOrAwaitValue
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -41,7 +42,7 @@ class ShoppingDaoTest {
     }
 
     @Test
-    fun insertShoppingItem() = runBlockingTest {
+    fun insertShoppingItem() = runTest {
         val shoppingItem = ShoppingItem("name", 1, 1f, "url", id = 1)
         dao.insertShoppingItem(shoppingItem)
 
@@ -50,4 +51,26 @@ class ShoppingDaoTest {
         assertThat(allShoppingItems).contains(shoppingItem)
     }
 
+    @Test
+    fun deleteShoppingItem() = runTest {
+        val shoppingItem = ShoppingItem("name", 1, 1f, "url", id = 1)
+        dao.insertShoppingItem(shoppingItem)
+        dao.deleteShoppingItem(shoppingItem)
+
+        val allShoppingItems = dao.observeAllShoppingItems().getOrAwaitValue()
+
+        assertThat(allShoppingItems).doesNotContain(shoppingItem)
+    }
+
+    @Test
+    fun observeTotalPriceSum() = runTest {
+        val shoppingItem1 = ShoppingItem("name", 5, 10f, "url", id = 1)
+        val shoppingItem2 = ShoppingItem("name", 2, 20f, "url", id = 2)
+        dao.insertShoppingItem(shoppingItem1)
+        dao.insertShoppingItem(shoppingItem2)
+
+        val totalPriceSum = dao.observeTotalPrice().getOrAwaitValue()
+
+        assertThat(totalPriceSum).isEqualTo(5*10f+2*20f)
+    }
 }
