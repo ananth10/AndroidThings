@@ -3,6 +3,7 @@ package com.ananth.androidthings.testing.data.remote
 import com.ananth.androidthings.BuildConfig
 import com.ananth.androidthings.testing.data.remote.responses.ImageResponse
 import com.ananth.androidthings.testing.data.remote.responses.ImageResult
+import com.ananth.androidthings.testing.other.Resource
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
