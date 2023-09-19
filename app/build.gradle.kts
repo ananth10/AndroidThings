@@ -2,7 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.serialization")
-    id("kotlin-kapt")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -89,11 +90,9 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    implementation("com.google.dagger:hilt-android:2.31-alpha")
-    kapt("com.google.dagger:hilt-android-compiler:2.28-alpha")
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
 
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
-    kapt("androidx.hilt:hilt-compiler:1.1.0-alpha01")
 
     //Gson
     implementation("com.google.code.gson:gson:2.10.1")
@@ -111,4 +110,8 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     implementation("io.coil-kt:coil-compose:2.4.0")
+}
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
