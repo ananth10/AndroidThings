@@ -6,6 +6,8 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.ananth.androidthings.testing.getOrAwaitValue
+import com.ananth.androidthings.testing.launchFragmentInHiltContainer
+import com.ananth.androidthings.testing.ui.ShoppingFragment
 import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -79,5 +81,10 @@ class ShoppingDaoTest {
         val totalPriceSum = dao.observeTotalPrice().getOrAwaitValue()
 
         assertThat(totalPriceSum).isEqualTo(5 * 10f + 2 * 20f)
+    }
+
+    @Test
+    fun testLaunchFragmentInHiltContainer(){
+        launchFragmentInHiltContainer<ShoppingFragment>()
     }
 }

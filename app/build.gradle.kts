@@ -115,7 +115,7 @@ dependencies {
 
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-
+    debugImplementation("androidx.fragment:fragment-testing:1.6.1")
     implementation("io.coil-kt:coil-compose:2.4.0")
 }
 // Allow references to generated code
