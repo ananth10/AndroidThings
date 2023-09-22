@@ -2,12 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+
+            <data android:mimeType="text/plain" />
+        </intent>
+    </queries>
+
     <application
-        android:allowBackup="true"
         android:name=".testing.ShoppingApplication"
+        android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -17,10 +26,13 @@
         android:theme="@style/Theme.AndroidThings"
         tools:targetApi="31">
         <activity
+            android:name=".testing.ShoppingActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:launchMode="singleTop"
             android:label="@string/app_name"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.AndroidThings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,50 +40,80 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.SEND"/> <!--other app can send, we are filtering based on action-->
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="image/*"/> <!--mean , what kind of data our app can receive-->
+                <action android:name="android.intent.action.SEND" /> <!-- other app can send, we are filtering based on action -->
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" /> <!-- mean , what kind of data our app can receive -->
             </intent-filter>
         </activity>
-        <activity android:name=".intent.MyIntentActivity"/>
-        <activity android:name=".broadcast.BroadCastActivity" android:exported="true"/>
-        <activity android:name=".foregroundservice.ForeGroundServiceActivity" android:exported="true"/>
-        <service android:name=".foregroundservice.RunningService"/>
-        <activity android:name=".workmanager.WorkManagerActivity" android:exported="true" android:launchMode="singleTop">
+        <activity android:name=".intent.MyIntentActivity" />
+        <activity
+            android:name=".broadcast.BroadCastActivity"
+            android:exported="true" />
+        <activity
+            android:name=".foregroundservice.ForeGroundServiceActivity"
+            android:exported="true" />
+
+        <service android:name=".foregroundservice.RunningService" />
+
+        <activity
+            android:name=".workmanager.WorkManagerActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <intent-filter>
-                <action android:name="android.intent.action.SEND"/> <!--other app can send, we are filtering based on action-->
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="image/*"/> <!--mean , what kind of data our app can receive-->
+                <action android:name="android.intent.action.SEND" /> <!-- other app can send, we are filtering based on action -->
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" /> <!-- mean , what kind of data our app can receive -->
             </intent-filter>
         </activity>
-
-        <activity android:name=".uri.UriActivity" android:exported="true"/>
-        <activity android:name=".content_providers.ContentProviderActivity" android:exported="true"/>
-        <activity android:name=".crypto.CryptoActivity" android:exported="true"/>
-        <activity android:name=".encrypt_datastore.EncryptDataStoreActivity" android:exported="true"/>
-        <activity android:name=".material3.MaterialButtonsActivity" android:exported="true"/>
-        <activity android:name=".material3.MaterialTextFieldActivity" android:exported="true"/>
-        <activity android:name=".material3.SelectionUIActivity" android:exported="true"/>
-        <activity android:name=".material3.TopAppBarActivity" android:exported="true"/>
-        <activity android:name=".material3.BottomAppBarActivity" android:exported="true"/>
-        <activity android:name=".material3.BottomNavigation" android:exported="true"/>
-        <activity android:name=".material3.NavigationRailActivity" android:exported="true"/>
-        <activity android:name=".material3.NavigationDrawerActivity" android:exported="true"/>
-        <activity android:name=".material3.BottomSheetActivity" android:exported="true"/>
-        <activity android:name=".material3.SwipeableTabRowActivity" android:exported="true"/>
+        <activity
+            android:name=".uri.UriActivity"
+            android:exported="true" />
+        <activity
+            android:name=".content_providers.ContentProviderActivity"
+            android:exported="true" />
+        <activity
+            android:name=".crypto.CryptoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".encrypt_datastore.EncryptDataStoreActivity"
+            android:exported="true" />
+        <activity
+            android:name=".material3.MaterialButtonsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".material3.MaterialTextFieldActivity"
+            android:exported="true" />
+        <activity
+            android:name=".material3.SelectionUIActivity"
+            android:exported="true" />
+        <activity
+            android:name=".material3.TopAppBarActivity"
+            android:exported="true" />
+        <activity
+            android:name=".material3.BottomAppBarActivity"
+            android:exported="true" />
+        <activity
+            android:name=".material3.BottomNavigation"
+            android:exported="true" />
+        <activity
+            android:name=".material3.NavigationRailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".material3.NavigationDrawerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".material3.BottomSheetActivity"
+            android:exported="true" />
+        <activity
+            android:name=".material3.SwipeableTabRowActivity"
+            android:exported="true" />
     </application>
-
-    <queries>
-        <intent>
-            <action android:name="android.intent.action.SEND" />
-            <data android:mimeType="text/plain" />
-        </intent>
-    </queries>
 
 </manifest>
