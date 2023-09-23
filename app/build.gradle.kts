@@ -98,6 +98,7 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.44.2")
 
 
+
     //Gson
     implementation("com.google.code.gson:gson:2.10.1")
 
@@ -117,6 +118,7 @@ dependencies {
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.44")
     androidTestImplementation("org.mockito:mockito-core:4.7.0")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.44.2")
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.3.0")
 
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")

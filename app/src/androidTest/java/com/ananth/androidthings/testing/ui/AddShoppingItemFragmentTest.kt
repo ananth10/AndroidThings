@@ -19,7 +19,7 @@ import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
 import com.ananth.androidthings.R
 import com.ananth.androidthings.testing.getOrAwaitValue
-import com.ananth.androidthings.testing.repositories.FakeShoppingRepository
+import com.ananth.androidthings.testing.repositories.FakeShoppingRepositoryAndroidTest
 import com.google.common.truth.Truth
 
 @MediumTest
@@ -40,7 +40,7 @@ class AddShoppingItemFragmentTest {
     fun setUp() {
         hiltRule.inject()
 
-        viewModel = ShoppingViewModel(FakeShoppingRepository())
+        viewModel = ShoppingViewModel(FakeShoppingRepositoryAndroidTest())
     }
 
     @Test

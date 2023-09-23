@@ -6,7 +6,7 @@ import com.ananth.androidthings.testing.data.local.ShoppingItem
 import com.ananth.androidthings.testing.data.remote.responses.ImageResponse
 import com.ananth.androidthings.testing.other.Resource
 
-class FakeShoppingRepository : ShoppingRepository {
+class FakeShoppingRepositoryAndroidTest : ShoppingRepository {
     private val shoppingItems = mutableListOf<ShoppingItem>()
 
     private val observableShoppingItems = MutableLiveData<List<ShoppingItem>>(shoppingItems)
