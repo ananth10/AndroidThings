@@ -6,6 +6,7 @@ import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.filters.MediumTest
 import com.ananth.androidthings.testing.launchFragmentInHiltContainer
@@ -18,9 +19,11 @@ import org.junit.Test
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
 import com.ananth.androidthings.R
+import com.ananth.androidthings.testing.data.local.ShoppingItem
 import com.ananth.androidthings.testing.getOrAwaitValue
 import com.ananth.androidthings.testing.repositories.FakeShoppingRepositoryAndroidTest
 import com.google.common.truth.Truth
+import javax.inject.Inject
 
 @MediumTest
 @HiltAndroidTest
@@ -33,6 +36,8 @@ class AddShoppingItemFragmentTest {
     @get:Rule
     var instanceTaskExecutorRule = InstantTaskExecutorRule()
 
+    @Inject
+    lateinit var fragmentFactory: ShoppingFragmentFactory
 
     private lateinit var viewModel: ShoppingViewModel
 
@@ -82,5 +87,27 @@ class AddShoppingItemFragmentTest {
         //Assertion
         val result = viewModel.imagesUrl.getOrAwaitValue()
         Truth.assertThat(result).isEqualTo("")
+    }
+
+    @Test
+    fun shouldInsertShoppingItemIntoDBWhenClick(){
+        //Arrange
+        val testViewModel = ShoppingViewModel(FakeShoppingRepositoryAndroidTest())
+        launchFragmentInHiltContainer<AddShoppingItemFragment>(
+            fragmentFactory = fragmentFactory
+        ) {
+
+            viewModel = testViewModel
+        }
+
+        //Action
+        onView(withId(R.id.etShoppingItemName)).perform(replaceText("shopping_item"))
+        onView(withId(R.id.etShoppingItemAmount)).perform(replaceText("5"))
+        onView(withId(R.id.etShoppingItemPrice)).perform(replaceText("5.5"))
+        onView(withId(R.id.btnAddShoppingItem)).perform(click())
+
+        //Assert
+
+        Truth.assertThat(testViewModel.shoppingItems.getOrAwaitValue()).contains(ShoppingItem("shopping_item",5,5.5f,""))
     }
 }
