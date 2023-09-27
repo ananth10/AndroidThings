@@ -65,6 +65,7 @@
         <activity android:name=".material3.NavigationDrawerActivity" android:exported="true"/>
         <activity android:name=".material3.BottomSheetActivity" android:exported="true"/>
         <activity android:name=".material3.SwipeableTabRowActivity" android:exported="true"/>
+        <activity android:name=".lazycolumnwithcategories.LazyColumnWithCategoryActivity" android:exported="true"/>
     </application>
 
     <queries>
