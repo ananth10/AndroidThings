@@ -63,64 +63,64 @@ class SwipeableTabRowActivity : ComponentActivity() {
                 Icons.Outlined.AccountCircle
             )
         )
-        setContent {
-            AndroidThingsTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    var selectedTabIndex by remember {
-                        mutableIntStateOf(0)
-                    }
-                    val pagerState = rememberPagerState(0)
-
-                    LaunchedEffect(selectedTabIndex) {
-                        pagerState.animateScrollToPage(selectedTabIndex)
-                    }
-
-                    LaunchedEffect(pagerState.currentPage) {
-                        if(!pagerState.isScrollInProgress) {
-                            selectedTabIndex = pagerState.settledPage
-                        }
-                    }
-
-                    Column(
-                        modifier = Modifier.fillMaxSize()
-                    ) {
-                        TabRow(selectedTabIndex = selectedTabIndex) {
-                            tabItem.forEachIndexed { index, tabRow ->
-                                Tab(selected = index == selectedTabIndex, onClick = {
-                                    selectedTabIndex = index
-                                },
-                                    text = {
-                                        Text(text = tabRow.title)
-                                    },
-                                    icon = {
-                                        Icon(
-                                            imageVector = if (index == selectedTabIndex) tabRow.selectedIcon else tabRow.unSelectedIcon,
-                                            contentDescription = tabRow.title
-                                        )
-                                    }
-                                )
-                            }
-                        }
-                        HorizontalPager(
-                            pageCount = tabItem.size, state = pagerState, modifier = Modifier
-                                .fillMaxWidth()
-                                .weight(1f)
-                        ) { index ->
-                            Box(
-                                Modifier.fillMaxSize(),
-                                Alignment.Center
-                            ) {
-                                Text(text = tabItem[index].title)
-                            }
-
-                        }
-                    }
-
-                }
-            }
-        }
+//        setContent {
+//            AndroidThingsTheme {
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colorScheme.background
+//                ) {
+//                    var selectedTabIndex by remember {
+//                        mutableIntStateOf(0)
+//                    }
+//                    val pagerState = rememberPagerState(0)
+//
+//                    LaunchedEffect(selectedTabIndex) {
+//                        pagerState.animateScrollToPage(selectedTabIndex)
+//                    }
+//
+//                    LaunchedEffect(pagerState.currentPage) {
+//                        if(!pagerState.isScrollInProgress) {
+//                            selectedTabIndex = pagerState.settledPage
+//                        }
+//                    }
+//
+//                    Column(
+//                        modifier = Modifier.fillMaxSize()
+//                    ) {
+//                        TabRow(selectedTabIndex = selectedTabIndex) {
+//                            tabItem.forEachIndexed { index, tabRow ->
+//                                Tab(selected = index == selectedTabIndex, onClick = {
+//                                    selectedTabIndex = index
+//                                },
+//                                    text = {
+//                                        Text(text = tabRow.title)
+//                                    },
+//                                    icon = {
+//                                        Icon(
+//                                            imageVector = if (index == selectedTabIndex) tabRow.selectedIcon else tabRow.unSelectedIcon,
+//                                            contentDescription = tabRow.title
+//                                        )
+//                                    }
+//                                )
+//                            }
+//                        }
+//                        HorizontalPager(
+//                            pageCount = tabItem.size, state = pagerState, modifier = Modifier
+//                                .fillMaxWidth()
+//                                .weight(1f)
+//                        ) { index ->
+//                            Box(
+//                                Modifier.fillMaxSize(),
+//                                Alignment.Center
+//                            ) {
+//                                Text(text = tabItem[index].title)
+//                            }
+//
+//                        }
+//                    }
+//
+//                }
+//            }
+//        }
     }
 }
