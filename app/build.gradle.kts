@@ -65,6 +65,16 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
     implementation("androidx.datastore:datastore-preferences:1.0.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.1.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //Gson
+    implementation("com.google.code.gson:gson:2.10.1")
+
+    //coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("com.google.truth:truth:1.1.4")
