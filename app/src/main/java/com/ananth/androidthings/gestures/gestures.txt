@@ -1,0 +1,54 @@
+Pointer
+ ->Touch
+ ->Mouse
+ ->Trackpad
+ ->stylus
+
+Gesture
+ ->User put on finger in any location and dragging and take of finger at desired point or cancel it
+
+ ->Its stream of pointer events (press->move->.....->Release)
+
+MultiTouch Gesture
+
+   ->In this case pointer s performs pinch gestures by moving outwards and inwards
+   -> p1 is press->move.....>release
+   -> p2 is press->move......>release
+   ->p1 and p2 events happen simultaneous
+
+1.Pointer Events:
+ ->Handle the raw pointer events using the pointerinput modifier
+ ->Pointer events contains set of gesture recognizers
+
+2.Gesture Recognizers:
+->Detect full gesture inside the pointerinput modifier
+
+3.Gesture Modifier:
+->Add gesture handling and extra functionality
+
+4.Components
+->Use in-build gesture handling of components
+
+
+Gesture Recognizer
+
+To detect gesture recognizer apply pointerinput to the modifier
+
+
+Toolbox
+ 1.Gesture Recognizers
+->detectTapGesture
+->detectDragGesture
+->detectVerticalDragGesture
+->detectHorizontalDragGesture
+->detectDragGestureAfterLongPress
+->detectTransformGesture
+
+2. Gesture Modifiers
+ ->clickable
+ ->combinedClickable (onClick,onLongClick,onDoubleClick)
+ ->draggable
+ ->scrollable
+ ->transformable
+
+

@@ -72,6 +72,7 @@
         <activity android:name=".material3.BottomSheetActivity" android:exported="true"/>
         <activity android:name=".material3.SwipeableTabRowActivity" android:exported="true"/>
         <activity android:name=".camerax.CameraXActivity" android:exported="true"/>
+        <activity android:name=".gestures.GestureActivity" android:exported="true"/>
     </application>
 
     <queries>
