@@ -90,7 +90,7 @@ fun PhotoGrid(
     var selectedIds by rememberSaveable {
         mutableStateOf(emptySet<Int>())
     }
-    val inSelectionMode by remember { derivedStateOf { selectedIds.isEmpty() } }
+    val inSelectionMode by remember { derivedStateOf { selectedIds.isNotEmpty() } }
 
     LazyVerticalGrid(
         state = state,
@@ -214,7 +214,7 @@ private fun Set<Int>.addOrRemoveUpTo(
     initialKey: Int?
 ): Set<Int> {
     return if (pointerKey == null || previousPointerKey == null || initialKey == null) {
-        return this
+        this
     } else {
         this.minus(initialKey..previousPointerKey)
             .minus(previousPointerKey..initialKey)

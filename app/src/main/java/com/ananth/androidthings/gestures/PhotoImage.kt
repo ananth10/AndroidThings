@@ -1,6 +1,5 @@
 package com.ananth.androidthings.gestures
 
-import android.view.inputmethod.DeleteGesture
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectTransformGestures
