@@ -9,9 +9,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -19,6 +21,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -56,6 +62,8 @@ class MainActivity : ComponentActivity() {
                         }) {
                             Text(text = "Click")
                         }
+                        Spacer(modifier = Modifier.height(30.dp))
+                        SpanText()
                     }
                 }
             }
@@ -75,6 +83,30 @@ class MainActivity : ComponentActivity() {
         }
 
     }
+}
+
+@Composable
+fun SpanText() {
+    val tnc = "Terms and Condition"
+    val privacyPolicy = "Privacy policy"
+    val annotatedString = buildAnnotatedString {
+        append("I have read ")
+        withStyle(style = SpanStyle(color = Color.Red), ) {
+            pushStringAnnotation(tag = tnc, annotation = tnc)
+            append(tnc)
+        }
+        append(" and ")
+        withStyle(style = SpanStyle(color = Color.Red), ) {
+            pushStringAnnotation(tag = privacyPolicy, annotation = privacyPolicy)
+            append(privacyPolicy)
+        }
+    }
+
+    ClickableText(text = annotatedString, onClick = { offset ->
+        annotatedString.getStringAnnotations(offset,offset).firstOrNull()?.let { span->
+            println("Clicked on ${span.item}")
+        }
+    })
 }
 
 @Composable

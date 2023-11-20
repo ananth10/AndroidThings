@@ -78,6 +78,8 @@ dependencies {
     implementation("androidx.camera:camera-view:$cameraxVersion")
     implementation("androidx.camera:camera-extensions:$cameraxVersion")
 
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
     testImplementation("junit:junit:4.13.2")
     testImplementation("com.google.truth:truth:1.1.4")
 
